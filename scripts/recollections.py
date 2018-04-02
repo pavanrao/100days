@@ -8,6 +8,8 @@ from collections import defaultdict, namedtuple, deque, Counter
 import csv
 import random
 from urllib.request import urlretrieve
+from datetime import datetime, date, timedelta
+
 
 
 
@@ -118,4 +120,21 @@ for k, v in sorted(common_words.items(),
 
 print("\nusing counter")
 print(Counter(words).most_common(5))
+
+
+lst = list(range(10000000))
+deq = deque(range(10000000))
+
+def insert_delete(ds):
+	for _ in range(10):
+		index = random.choice(range(100))
+		ds.remove(index)
+		ds.insert(index,index)
+
+print(datetime.now())
+insert_delete(lst)
+print(datetime.now())
+
+insert_delete(deq)
+print(datetime.now())
 
